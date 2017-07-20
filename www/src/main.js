@@ -4,15 +4,18 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-require('../node_modules/bootstrap/less/bootstrap.less')
 
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  store,
   router,
+  data(){
+    return {
+      store
+    }
+  },
   template: '<App/>',
   components: { App }
 })

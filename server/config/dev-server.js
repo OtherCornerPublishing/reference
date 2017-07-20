@@ -16,7 +16,7 @@ let server = require('http').createServer(app)
 function Validate(req, res, next) {
     // ONLY ALLOW GET METHOD IF NOT LOGGED IN 
     console.log(req.session)
-    if (!req.session.uid) {
+    if (req.method !== 'GET' && !req.session.uid) {
         return res.send({ error: 'Please Login or Register to continue' })
     }
     return next()
@@ -31,7 +31,10 @@ function logger(req, res, next) {
 app.use(session)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+console.log("what directory", __dirname)
+// SERVE STATIC FILES FROM THE WWW BUILD
 app.use(express.static(__dirname + '/../public'))
+
 app.use('*', logger)
 app.use('*', cors(corsOptions))
 app.use('/', Auth)

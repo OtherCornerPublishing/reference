@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img src="./assets/logo.jpg">
     <router-view></router-view>
   </div>
 </template>
@@ -7,9 +8,6 @@
 <script>
 export default {
   name: 'app',
-  mounted() {
-    this.$store.dispatch('getAuth')
-  }
 }
 </script>
 
@@ -19,11 +17,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: black;
+  color: #2c3e50;
   margin-top: 60px;
-  background-color: #fff;
-}
-body{
-  background-color: #fff;
 }
 </style>
