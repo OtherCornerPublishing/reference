@@ -12,9 +12,10 @@ var schema = new mongoose.Schema({
   foundCount: { type: Number, default: 0 },
   pvp: { type: Boolean, default: true },
   value: { type: Number, required: true },
-  lifespan: { type: Number},
+  lifespan: { type: Number },
   action: { type: String },
-  cost: { type: String }
+  cost: { type: String },
+  secret: { type: Boolean, required: true, default: false }
 });
 
 module.exports = mongoose.model(models.card.name, schema);
