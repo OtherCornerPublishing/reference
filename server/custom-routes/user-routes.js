@@ -10,7 +10,7 @@ export default {
       let action = 'return deck and associated cards'
       Decks.findById(req.params.deckId)
         .then(deck => {
-          Cards.find({ deckId: req.params.deckId })
+          Cards.find({ decks: req.params.deckId })
             .then(cards => {
               deck.cards = cards
               res.send(handleResponse(action, deck.cards))
@@ -21,7 +21,7 @@ export default {
     }
   },
   getCardsByUserId: {
-    path: '/usercards/',
+    path: '/usercards',
     reqType: 'get',
     method(req, res, next) {
       let action = 'return users associated cards'
